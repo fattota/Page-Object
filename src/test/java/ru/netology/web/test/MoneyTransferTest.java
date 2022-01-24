@@ -86,13 +86,11 @@ public class MoneyTransferTest {
     @Test
     void shouldTransferMoneyFromSecondCardToFirstCardIfAmountTransferIsOverBalance(){
         val dashboardPage = new DashboardPage();
-        val balanceFirstCardBefore = dashboardPage.getFirstCardBalance();
-        val balanceSecondCardBefore = dashboardPage.getSecondCardBalance();
         val cardRefillPage = dashboardPage.chooseFirstCardToRefill();
         val cardInfo = DataHelper.getSecondCardInfo();
         cardRefillPage.moneyTransfer(cardInfo, newAmountToTransferOverBalance);
         val dashboardPageWithError = new DashboardPage();
-        dashboardPageWithError.getNotificationVisible();
+        cardRefillPage.getNotificationVisible();
 
 
     }

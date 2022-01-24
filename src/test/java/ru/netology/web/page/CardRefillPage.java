@@ -5,6 +5,7 @@ import com.codeborne.selenide.SelenideElement;
 import ru.netology.web.data.DataHelper;
 
 import static com.codeborne.selenide.Condition.visible;
+import static com.codeborne.selenide.Selectors.withText;
 import static com.codeborne.selenide.Selenide.$;
 
 public class CardRefillPage {
@@ -12,6 +13,7 @@ public class CardRefillPage {
     private SelenideElement amountField = $("[data-test-id='amount'] input");
     private SelenideElement fromField = $("[data-test-id='from'] input");
     private SelenideElement transferButton = $("[data-test-id='action-transfer']");
+    private SelenideElement notification = $("[data-test-id=error-notification]").$(withText("Ошибка"));
 
     public CardRefillPage() {
         form.shouldBe(visible);
@@ -24,5 +26,7 @@ public class CardRefillPage {
         transferButton.click();
     }
 
-
+    public SelenideElement getNotificationVisible() {
+        return notification.shouldBe(visible);
+    }
 }

@@ -16,7 +16,7 @@ public class DashboardPage {
     private SelenideElement secondCardButton = $$("[data-test-id=action-deposit]").last();
     private SelenideElement balance0001 = $("[data-test-id='92df3f1c-a033-48e6-8390-206f6b1f56c0']");
     private SelenideElement balance0002 = $("[data-test-id='0f3f5c2a-249e-4c3d-8287-09f7a039391d']");
-    private SelenideElement notification = $("[data-test-id=error-notification]").$(withText("Ошибка"));
+
 
     public DashboardPage() {
         heading.shouldBe(visible);
@@ -49,8 +49,5 @@ public class DashboardPage {
         return Integer.parseInt(value);
     }
 
-    public SelenideElement getNotificationVisible() {
-        return notification.shouldBe(visible);
 
-    }
 }
